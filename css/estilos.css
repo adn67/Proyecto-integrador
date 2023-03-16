@@ -42,8 +42,13 @@ footer {
   color: var(--txt-light);
 }
 
-nav > a {
+nav a {
   color: var(--txt-light);
+  text-transform: uppercase;
+}
+
+nav li{
+  list-style-type: none;
 }
 
 a:link {
@@ -54,4 +59,21 @@ a:link {
   background-image: url(/img/funkos-banner.webp);
   height: 350px;
   /* modificar height - puesto solo para maquetar */
+  /* background-size: 100%; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+
+}
+
+h2,
+h3,
+.nuevo{
+  text-transform: uppercase;
+}
+
+h2 span{
+  text-transform: none;
 }

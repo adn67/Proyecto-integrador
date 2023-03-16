@@ -22,67 +22,108 @@
         />
 
         <nav>
-          <a href=""></a>
-          <a href="#">SHOP</a>
-          <a href="#">CONTACTO</a>
-          <a href="#">LOGIN</a>
-          <a href="#"
-            ><img src="/img/icons/cart-icon.svg" alt="carrito de compras"
-          /></a>
+          <li><a href="#">SHOP</a></li>
+          <li><a href="#">CONTACTO</a></li>
+          <li><a href="#">LOGIN</a></li>
+          <li>
+            <a href="#"
+              ><img src="/img/icons/cart-icon.svg" alt="carrito de compras"
+            /></a>
+          </li>
         </nav>
       </div>
+
       <div class="banner">
         <div class="container">
-          <h2>Nuevos Ingresos</h2>
+          <h2><span class="original">Nuevos Ingresos</span></h2>
           <p>Descubrí el próximo Funko Pop de tu colección</p>
-          <div class="btn">SHOP</div>
+          <button>SHOP</button>
+          <!-- <div class="btn">SHOP</div> -->
         </div>
       </div>
     </header>
-    <main>
-      <seccion class="coleccion">
-        <h2></h2>
-        <p></p>
-        <a href=""></a><img src="" alt=""
-      /></seccion>
-      <seccion class="coleccion">
-        <h2></h2>
-        <p></p>
-        <a href=""></a><img src="" alt=""
-      /></seccion>
-      <seccion class="coleccion">
-        <h2></h2>
-        <p></p>
-        <a href=""></a><img src="" alt=""
-      /></seccion>
+    <main class="colecciones container">
+      <article>
+        <h2>Star Wars & The Mandalorian</h2>
+        <p>
+          Disfruta de una saga que sigue agregando personajes a su colección.
+        </p>
+        <button>VER COLECCIÓN</button>
+        <img src="img/star-wars/baby-yoda-1.webp" alt="Baby Yoda" />
+      </article>
+
+      <article>
+        <h2>Pokemon Indigo</h2>
+        <p>
+          Atrapa todos los que puedas y disfruta de una colección llena de
+          amigos.
+        </p>
+        <button>VER COLECCIÓN</button>
+        <img src="img/pokemon/vulpix-1.webp" alt="Vulpix" />
+      </article>
+
+      <article>
+        <h2>Harry Potter</h2>
+        <p>Revive los recuerdos de una saga llena de magia y encanto.</p>
+        <button>VER COLECCIÓN</button>
+        <img
+          src="img/harry-potter/snape-patronus-1.webp"
+          alt="Snape Patronus"
+        />
+      </article>
     </main>
-    <section>
-      <h2></h2>
-      <article>
-        <img src="" alt="" />
-        <h3></h3>
-        <p></p>
-        <p></p>
+
+    <section class="lanzamientos container">
+      <h2>últimos lanzamientos</h2>
+
+      <!-- reemplazar por un carrusel -->
+
+      <article class="card">
+        <p class="nuevo">nuevo</p>
+        <img src="img/star-wars/trooper-1.webp" alt="Star Wars Stormtrooper" />
+        <h3>Star Wars</h3>
+        <p>STORMTROOPER LIGHTSABER</p>
+        <p>$ 1799,99.-</p>
+        <p class="destacado">3 CUOTAS SIN INTERÉS</p>
       </article>
-      <article>
-        <img src="" alt="" />
-        <h3></h3>
-        <p></p>
-        <p></p>
+
+      <article class="card">
+        <p class="nuevo">nuevo</p>
+        <img src="img/pokemon/pidgeotto-1.webp" alt="Pokémon Pidgeotto" />
+        <h3>Pokémon</h3>
+        <p>PIDGEOTTO</p>
+        <p>$ 1799,99.-</p>
+        <p class="destacado">3 CUOTAS SIN INTERÉS</p>
       </article>
-      <article>
-        <img src="" alt="" />
-        <h3></h3>
-        <p></p>
-        <p></p>
+
+      <article class="card">
+        <p class="nuevo">nuevo</p>
+        <img
+          src="img/harry-potter/luna-1.webp"
+          alt="Harry Potter Luna Lovegood"
+        />
+        <h3>Harry Potter</h3>
+        <p>LUNA LOVEGOOD LION MASK</p>
+        <p>$ 1799,99.-</p>
+        <p class="destacado">3 CUOTAS SIN INTERÉS</p>
       </article>
     </section>
+
     <footer>
-      <div>
-        <nav></nav>
-        <img src="" alt="" class="logo" />
-        <p></p>
+      <div class="container flex s-b">
+        <nav>
+          <ul>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Registrarse</a></li>
+            <li><a href="#">Ingresar</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+        <img src="img/branding/isotype.svg" alt="Funkoshop" class="isotipo" />
       </div>
+      <p class="copyright">
+        <small>All rights reserved 2022 - Funkoshop &copy;</small>
+      </p>
     </footer>
   </body>
 </html>
