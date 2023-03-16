@@ -2,6 +2,7 @@
   /*  colores de uso general para fondo */
   --bg-dark: #30343f;
   --bg-light: #f5f5f5;
+  --bg-red: #ff3333;
 
   /*  colores de uso general para texto */
   --txt-dark: #111111;
@@ -47,7 +48,7 @@ nav a {
   text-transform: uppercase;
 }
 
-nav li{
+nav li {
   list-style-type: none;
 }
 
@@ -64,16 +65,38 @@ a:link {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-
-
 }
 
 h2,
 h3,
-.nuevo{
+.nuevo {
   text-transform: uppercase;
 }
 
-h2 span{
+.nuevo {
+  display: inline-block;
+  background-color: var(--bg-red);
+  color: var(--txt-light);
+  padding: 1em 3em;
+}
+
+h2 span {
   text-transform: none;
+}
+
+.destacado {
+  color: var(--txt-destacado);
+}
+
+.copyright {
+  text-align: center;
+}
+
+.card
+{
+  flex: 0 0 30%;
+}
+
+.card img{
+  max-width: 80%;
 }
