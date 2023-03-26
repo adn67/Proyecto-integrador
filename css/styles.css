@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=Raleway:wght@100;300;400;500;600;700;900&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--txt-font-1);
+  color: var(--txt-dark);
+  line-height: 1.2;
+}
+
+:root {
+  /* variables */
+
+  /* -------------------  PALETA DE COLORES -------------------  */
+  /*  colores de uso general para fondo */
+  --bg-dark: #30343f;
+  --bg-light: #fafaff;
+
+  /*  colores de uso general para texto (según la paleta en Components) */
+
+  --clr-primario-solid: #ff3333;
+  --clr-primario-900: rgba(255, 51, 51, 0.9);
+  --clr-primario-700: rgba(255, 51, 51, 0.7);
+  --clr-primario-500: rgba(255, 51, 51, 0.5);
+  --clr-primario-300: rgba(255, 51, 51, 0.3);
+
+  --clr-secundario-solid: #1d84b5;
+  --clr-secundario-900: rgba(29, 132, 181, 0.9);
+  --clr-secundario-700: rgba(29, 132, 181, 0.7);
+  --clr-secundario-500: rgba(29, 132, 181, 0.5);
+  --clr-secundario-300: rgba(29, 132, 181, 0.3);
+
+  --clr-dark-solid: #1f1f1f;
+  --clr-dark-900: rgba(31, 31, 31, 0.9);
+  --clr-dark-700: rgba(31, 31, 31, 0.7);
+  --clr-dark-500: rgba(31, 31, 31, 0.5);
+  --clr-dark-300: rgba(31, 31, 31, 0.3);
+
+  --clr-destacado-solid: #ff1654;
+  --clr-destacado-900: rgba(255, 22, 84, 0.9);
+  --clr-destacado-700: rgba(255, 22, 84, 0.7);
+  --clr-destacado-500: rgba(255, 22, 84, 0.5);
+  --clr-destacado-300: rgba(255, 22, 84, 0.3);
+
+  /* colores según plantilla de Figma (diferentes de los de la paleta en Components) */
+
+  --txt-dark: #111111;
+  --txt-med: #4f4f4f;
+  --txt-light: #ffffff;
+
+  /* -------------------- tipografía -------------------- */
+
+  --txt-font-1: "Raleway", sans-serif;
+  --txt-font-2: "Inter", sans-serif;
+
+  /* font-size */
+
+  font-size: 62.5%; /* 1rem = 10px */
+
+  --fs-display: 4.6rem;
+  --fs-jumbo: 3.8rem;
+  --fs-xlarge: 3rem;
+  --fs-large: 2.4rem;
+  --fs-medium: 1.8rem;
+  --fs-small: 1.6rem;
+  --fs-xsmall: 1.2rem;
+
+  /* espacios */
+  --sp-128: 12.8rem;
+  --sp-68: 6.8rem;
+  --sp-36: 3.6rem;
+  --sp-28: 2.8rem;
+  --sp-16: 1.6rem;
+  --sp-12: 1.2rem;
+  --sp-8: 0.8rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--txt-dark);
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+p {
+  font-size: var(--fs-medium);
+}
+
+/* clases utilitarias */
+
+.flex {
+  display: flex;
+}
+
+.flex_sb {
+  justify-content: space-between;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.container {
+  /* max-width: 1200px; - ¿Por qué no queda bien?   */
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.button {
+  display: inline;
+}
+
+/* ------------------------------------------- header ------------------------------------- */
+
+header {
+  background-color: var(--bg-dark);
+  height: 14.4rem;
+}
+
+nav {
+  align-items: center;
+  /* Pretendo centrar verticalmente. ¿Por qué no funciona? */
+
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+nav a {
+  color: var(--txt-light);
+}
+
+header ul {
+  gap: 5em;
+  align-items: center;
+}
+
+/* ------------------------------------------- banner ------------------------------------- */
+.hero {
+  color: var(--txt-light);
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(/img/funkos-banner.webp);
+  /* el falso gradiente produce una capa que oscurece la imagen y mejora el contraste con el texto, facilitando la legibilidad */
+  height: 450px;
+  /* modificar height - puesto solo para maquetar */
+  /* background-size: 100%; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero h2 {
+  font-weight: 700;
+  font-size: var(--fs-jumbo);
+  padding-top: var(--sp-128);
+}
+
+.hero p {
+  font-weight: 400;
+  font-size: var(--fs-medium);
+  margin-bottom: 48px;
+  margin-top: var(--sp-8);
+}
+
+.hero .button {
+  font-family: var(--txt-font-2);
+  font-weight: 500;
+  font-size: 2rem;
+  background-color: var(--txt-light);
+  padding: 12px 78px;
+  border-radius: 50px;
+}
+
+/* ------------------------------------------- main - colecciones ------------------------------------- */
+
+.colecciones {
+  justify-content: space-between;
+}
+
+.colecciones h3 {
+  font-weight: 500;
+  font-size: var(--fs-display);
+  text-transform: uppercase;
+}
+
+.colecciones p {
+  font-weight: 400;
+  font-size: var(--fs-large);
+}
+
+.colecciones img {
+  max-width: 600px;
+}
+
+.colecciones-data {
+  flex-direction: column;
+  justify-content: center;
+}
+
+main .button {
+  color: var(--txt-light);
+  background-color: var(--bg-dark);
+  font-family: var(--txt-font-2);
+  font-size: var(--fs-large);
+  font-weight: 500;
+  padding: 2rem 4rem;
+  border-radius: 5rem;
+  max-width: 29rem;
+  text-align: center;
+  margin-top: var(--sp-68);
+}
+
+/* ------------------------------------------- sección lanzamientos ------------------------------------- */
+
+.lanzamientos h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--fs-display);
+  margin-bottom: var(--sp-68);
+}
+
+.slider {
+  justify-content: space-between;
+  font-family: var(--txt-font-2);
+}
+
+.card {
+  display: flex;
+}
+
+.card-content {
+  position: relative;
+}
+
+.card img {
+  max-width: 36rem;
+}
+
+.card-content::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "NUEVO";
+  background-color: var(--clr-primario-solid);
+  color: var(--txt-light);
+
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: var(--sp-8) var(--sp-28);
+}
+
+.item__coleccion {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.4rem;
+  /* ver color */
+}
+
+.item__nombre {
+  font-weight: 700;
+  font-size: var(--fs-medium);
+  text-transform: uppercase;
+  margin: var(--sp-12) 0;
+}
+
+.item__precio {
+  font-weight: 400;
+  font-size: var(--fs-small);
+}
+
+.promo {
+  color: var(--clr-secundario-solid);
+  font-size: var(--fs-xsmall);
+  font-weight: 700;
+  margin: var(--sp-12) 0;
+  padding-bottom: var(--sp-68);
+}
+
+/* ------------------------------------------- footer ------------------------------------- */
+footer {
+  background-color: var(--bg-dark);
+  color: var(--txt-light);
+  font-weight: 500;
+}
+
+footer li{
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.center{text-align: center;
+padding-bottom: 1em;}
