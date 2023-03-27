@@ -153,7 +153,7 @@ header ul {
   color: var(--txt-light);
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(/img/funkos-banner.webp);
+    url(../img/funkos-banner.webp);
   /* el falso gradiente produce una capa que oscurece la imagen y mejora el contraste con el texto, facilitando la legibilidad */
   height: 450px;
   /* modificar height - puesto solo para maquetar */
