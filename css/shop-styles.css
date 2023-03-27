@@ -1,0 +1,128 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.formulario {
+  text-transform: uppercase;
+}
+
+.shop {
+  gap: 3em;
+  padding-top: var(--sp-68);
+}
+
+
+
+body {
+  background-color: var(--txt-light);
+}
+
+aside {
+  flex-basis: 20%;
+  max-width: 25rem;
+  color: var(--txt-dark);
+  font-family: var(--txt-font-2);
+  font-weight: 500;
+}
+
+form {
+  gap: 2em;
+}
+
+.buscar label,
+.ordenar label,
+form h4 {
+  font-size: var(--fs-large);
+}
+
+.buscar input,
+.select {
+  width: 100%;
+}
+
+.rango-precio label {
+  font-size: var(--fs-small);
+}
+
+.min-max {
+  align-items: center;
+}
+.min-max input {
+  max-width: 6rem;
+}
+
+.filtrar {
+  gap: 0.5em;
+}
+.filtrar label {
+  font-size: var(--fs-medium);
+}
+
+/* aparentemente no es posible modificar las propiedades de los checkboxes en CSS */
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+
+.check input[type="checkbox"] {
+  margin-left: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  accent-color: var(--clr-primario-solid);
+}
+
+aside input,
+.select {
+  border: 2px solid #30343f;
+  border-radius: 6px;
+  padding: 0.5em;
+}
+
+aside ::placeholder,
+.select {
+  color: #b9b9b9;
+  background-color: var(--txt-light);
+  font-size: 2rem;
+}
+
+.rango-precio input {
+  text-align: center;
+}
+
+
+aside h4{
+    font-weight: 500;
+    font-size: var(--fs-large);
+    margin-top: .6em;
+    margin-bottom: .4em;
+}
+/* ------------------------------ */
+
+main {
+  flex-basis: 70%;
+}
+
+.card img {
+  max-width: 300px;
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  margin-bottom: var(--sp-68);
+}
+.paginacion > * {
+  padding: 1em;
+  border: 1px solid #dfe3e8;
+  border-radius: 4px;
+}
