@@ -3,9 +3,10 @@
 *,
 *::after,
 *::before {
+  box-sizing: border-box;
+
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -69,23 +70,37 @@ html {
   --fs-large: 2.4rem;
   --fs-medium: 1.8rem;
   --fs-small: 1.6rem;
-  --fs-xsmall: 1.2rem;
+  --fs-xsmall: 1.4rem;
 
   /* espacios */
   --sp-128: 12.8rem;
   --sp-68: 6.8rem;
+  --sp-48: 4.8rem;
   --sp-36: 3.6rem;
   --sp-28: 2.8rem;
+  --sp-24: 2.4rem;
+  --sp-20: 2rem;
   --sp-16: 1.6rem;
   --sp-12: 1.2rem;
   --sp-8: 0.8rem;
 }
 
+/* ------------------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
 a {
   text-decoration: none;
-  font-size: 2rem;
   text-transform: uppercase;
-  color: var(--txt-dark);
+  font-family: inherit;
+  color: inherit;
 }
 
 ul,
@@ -99,223 +114,316 @@ p {
 
 /* clases utilitarias */
 
-.flex {
-  display: flex;
-}
-
-.flex__column{
-  flex-direction: column;
-}
-
-.flex_sb {
-  justify-content: space-between;
-}
-
-.order-2 {
-  order: 2;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .button {
-  display: inline;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.button:hover,
+.button:focus,
+.hero .button:hover {
+  color: var(--txt-light);
+  background-color: var(--clr-primario-900);
 }
 
 /* ------------------------------------------- header ------------------------------------- */
 
 header {
   background-color: var(--bg-dark);
-  height: 14.4rem;
-}
-
-nav {
-  align-items: center;
-  /* Pretendo centrar verticalmente. ¿Por qué no funciona? */
-
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-nav a {
+  padding: var(--sp-36);
   color: var(--txt-light);
 }
 
-header ul {
-  gap: 5em;
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* ------------------------------------------- banner ------------------------------------- */
+.navbar__logo {
+  max-width: 300px;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-20);
+}
+
+.navbar__link,
+.submenu__link {
+  font-size: 2rem;
+  padding: var(--sp-12) var(--sp-20);
+  border-radius: 0.4em;
+  /* border-radius: 50px; */
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__link:hover,
+.navbar__link:focus,
+.submenu__link:hover,
+.submenu__link:focus {
+  background-color: var(--clr-primario-900);
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.with-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: var(--bg-dark);
+  z-index: 3;
+}
+
+/* ---------------------------- banner ---------------------- */
+
 .hero {
   color: var(--txt-light);
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../img/funkos-banner.webp);
-  /* el falso gradiente produce una capa que oscurece la imagen y mejora el contraste con el texto, facilitando la legibilidad */
-  height: 450px;
-  /* modificar height - puesto solo para maquetar */
-  /* background-size: 100%; */
+  background-image: url(../img/funkos-banner.webp);
+
+  padding: var(--sp-128);
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  /* background-attachment: fixed; */
+  position: relative;
+
+  /* otra posibilidad para oscurecer la imagen de fondo (pero sin desenfocarla) es: 
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/funkos-banner.webp);
+
+
+  el falso gradiente entre dos colores iguales (negro transparente) produce una capa oscura sobre la imagen y mejora el contraste con el texto, facilitando la legibilidad - no requiere z-index ni pseudoelementos */
 }
 
-.hero h2 {
+.hero::before {
+  /* pseudoelemento para oscurecer y desenfocar la imagen de fondo */
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  backdrop-filter: blur(2px);
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  /* gap: var(--sp-20); */
+  z-index: 2; /* a causa del pseudoelemento ::before */
+  position: relative;
+}
+
+.hero__title {
   font-weight: 700;
   font-size: var(--fs-jumbo);
-  padding-top: var(--sp-128);
 }
 
-.hero p {
+.hero__text {
   font-weight: 400;
   font-size: var(--fs-medium);
-  margin-bottom: 48px;
+  margin-bottom: var(--sp-48);
   margin-top: var(--sp-8);
 }
 
-.hero .button {
+.hero__link {
+  /* display: inline-block; */
+  color: var(--txt-dark);
   font-family: var(--txt-font-2);
   font-weight: 500;
   font-size: 2rem;
   background-color: var(--txt-light);
-  padding: 12px 78px;
+  padding: var(--sp-12) var(--sp-68);
   border-radius: 50px;
 }
 
-/* ------------------------------------------- main - colecciones ------------------------------------- */
+/* ----------------------- main - colecciones ----------------- */
 
-.colecciones {
-  justify-content: space-between;
+.collection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  padding: var(--sp-16) 0;
 }
 
-.colecciones h3 {
+.collection:nth-child(2) .collection__content {
+  order: 1;
+}
+
+.collection__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+  align-items: start;
+}
+
+.collection__title {
   font-weight: 500;
   font-size: var(--fs-display);
   text-transform: uppercase;
 }
 
-.colecciones p {
+.collection__text {
   font-weight: 400;
   font-size: var(--fs-large);
+  border-bottom: 2px solid var(--clr-primario-solid);
+  padding-bottom: var(--sp-20);
 }
 
-.colecciones img {
-  max-width: 600px;
-}
-
-.colecciones-data {
-  flex-direction: column;
-  justify-content: center;
-  max-width: 500px;
-}
-.colecciones-data p {
-  position: relative;
-}
-.colecciones-data p::after {
-  position: absolute;
-  left: 0;
-  top: 3em;
-  content: "";
-  background-color: var(--clr-primario-solid);
-  height: 0.3rem;
-  width: 64rem;
-}
-
-main .button {
-  color: var(--txt-light);
-  background-color: var(--bg-dark);
-  font-family: var(--txt-font-2);
-  font-size: var(--fs-large);
+.collection__link {
+  font-size: var(--fs-medium);
   font-weight: 500;
-  padding: 2rem 4rem;
-  border-radius: 5rem;
-  max-width: 29rem;
-  text-align: center;
-  margin-top: var(--sp-68);
+  background-color: var(--bg-dark);
+  color: var(--txt-light);
+  padding: var(--sp-16) var(--sp-36);
+  border-radius: 50px;
 }
 
-/* ------------------------------------------- sección lanzamientos ------------------------------------- */
+.collection__cover {
+  /* ? */
+}
 
-.lanzamientos h2 {
+/* ---------------------------- sección lanzamientos ---------------------- */
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-36);
+  margin: var(--sp-68) auto;
+}
+
+.slider__title {
   text-transform: uppercase;
   font-weight: 700;
   font-size: var(--fs-display);
-  margin-bottom: var(--sp-68);
 }
 
-.slider {
-  justify-content: space-between;
+.slider__items {
+  display: flex;
+  gap: var(--sp-24);
+}
+
+.card-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+  padding: var(--sp-16);
+}
+
+.card-item {
   font-family: var(--txt-font-2);
 }
 
-.card {
+.card-item__cover {
   display: flex;
-}
-
-.card-content {
   position: relative;
 }
 
-.card img {
-  max-width: 36rem;
-}
 
-.card-content::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content: "NUEVO";
-  background-color: var(--clr-primario-solid);
+.card-item__tag{
+  font-size: var(--fs-xsmall);
+  text-transform: uppercase;
   color: var(--txt-light);
-
-  font-weight: 500;
-  font-size: 1.4rem;
-  padding: var(--sp-8) var(--sp-28);
+  background-color: var(--clr-primario-solid);
+  padding: var(--sp-8) var(--sp-12);
+  position: absolute;
+  right: 0;
 }
 
-.item__coleccion {
+
+.card-item__cover img {
+  animation: fade 0.5s;
+}
+
+.card-item__img--back {
+  display: none;
+}
+
+.card-item__cover:hover .card-item__img--back {
+  display: block;
+}
+
+.card-item__cover:hover .card-item__img--front {
+  display: none;
+}
+
+.card-item__license {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 1.4rem;
-  /* ver color */
+  font-size: var(--fs-xsmall);
 }
 
-.item__nombre {
+.card-item__name {
   font-weight: 700;
   font-size: var(--fs-medium);
   text-transform: uppercase;
-  margin: var(--sp-12) 0;
 }
 
-.item__precio {
+.card-item__price {
   font-weight: 400;
   font-size: var(--fs-small);
 }
 
-.promo {
+.card-item__promo {
   color: var(--clr-secundario-solid);
   font-size: var(--fs-xsmall);
   font-weight: 700;
-  margin: var(--sp-12) 0;
-  padding-bottom: var(--sp-68);
 }
 
-/* ------------------------------------------- footer ------------------------------------- */
-footer {
+/* --------------------------- footer --------------------- */
+
+.footer {
   background-color: var(--bg-dark);
   color: var(--txt-light);
   font-weight: 500;
+  padding: var(--sp-68);
 }
 
-footer li {
-  font-size: 2rem;
-  margin-bottom: 0.5em;
-}
 
-.center {
+.footer__copy {
   text-align: center;
-  padding-bottom: 1em;
+  padding: var(--sp-68);
+}
+
+
+
+
+
+/* ------------------- animations  ------------------- */
+
+
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
